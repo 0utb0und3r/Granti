@@ -28,6 +28,18 @@ function love.update(dt)
     player.vy = player.vy + gravity * dt
     player.y = player.y + player.vy * dt
 
+    -- collision with floor
+    if player.y + player.height > floor then
+        player.y = floor - player.height
+        player.vy = 0 -- Reset vertical velocity
+    end
+
+    --- collision with ceiling
+    if player.y < ceiling then
+        player.y = ceiling
+        player.vy = 0 -- Reset vertical velocity
+    end
+
     -- Horizontal movement
     if love.keyboard.isDown("left") then
         player.x = player.x - player.speed * dt
