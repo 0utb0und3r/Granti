@@ -9,7 +9,7 @@ function love.load()
         height = 50
     }
 
-    gravity = 500 -- Gravity strength
+    gravity = 700 -- Gravity strength
     floor = love.graphics.getHeight() - 40 -- Floor position
     ceiling = 40 -- Ceiling position
 end
@@ -62,4 +62,16 @@ function love.draw()
     love.graphics.setColor(1, 0, 0) -- Set color to red
     love.graphics.rectangle("fill", player.x, player.y, 50, 50)
 
+end
+
+-- Jumping on spacebar
+function love.keypressed(key)
+    -- flip gravity
+    if key == "g" then
+        gravity = -gravity -- Flip gravity direction
+    end
+    
+    if key == "space" and player.y + player.height >= floor then
+        player.vy = -300 -- Jumping velocity
+    end
 end
