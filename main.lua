@@ -29,13 +29,13 @@ function love.update(dt)
     player.y = player.y + player.vy * dt
 
     -- collision with floor
-    if player.y + player.height > floor then
+    if player.y + player.height >= floor then
         player.y = floor - player.height
         player.vy = 0 -- Reset vertical velocity
     end
 
     --- collision with ceiling
-    if player.y < ceiling then
+    if player.y <= ceiling then
         player.y = ceiling
         player.vy = 0 -- Reset vertical velocity
     end
