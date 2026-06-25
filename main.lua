@@ -24,6 +24,10 @@ function love.update(dt)
     --     player.y = player.y + player.speed * dt
     -- end
 
+    -- Apply gravity
+    player.vy = player.vy + gravity * dt
+    player.y = player.y + player.vy * dt
+
     -- Horizontal movement
     if love.keyboard.isDown("left") then
         player.x = player.x - player.speed * dt
@@ -31,7 +35,7 @@ function love.update(dt)
     if love.keyboard.isDown("right") then
         player.x = player.x + player.speed * dt
     end
-    
+
 end
 
 function love.draw()
