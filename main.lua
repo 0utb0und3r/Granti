@@ -3,8 +3,15 @@ function love.load()
     player = {
         x = 100,
         y = 100,
-        speed = 200
+        speed = 200,
+        vy = 0 ,-- vertical velocity
+        width = 50,
+        height = 50
     }
+
+    gravity = 500 -- Gravity strength
+    floor = love.graphics.getHeight() - 40 -- Floor position
+    ceiling = 40 -- Ceiling position
 end
 
 function love.update(dt)
@@ -25,6 +32,14 @@ end
 
 function love.draw()
     -- Draw game objects, UI elements, etc.
+
+    -- Drawing the floor and ceiling
+    love.graphics.setColor(0.3, 0.3, 0.3) -- Set color to gray
+    love.graphics.rectangle("fill", 0, floor, love.graphics.getWidth(), 40) -- Floor
+    love.graphics.rectangle("fill", 0, 0, love.graphics.getWidth(), ceiling) -- Ceiling
+
+    -- Drawing player
     love.graphics.setColor(1, 0, 0) -- Set color to red
     love.graphics.rectangle("fill", player.x, player.y, 50, 50)
+
 end
