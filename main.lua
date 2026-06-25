@@ -2,7 +2,7 @@ function love.load()
     -- Load assets, initialize variables, etc.
     player = {
         x = 100,
-        y = 100,
+        y = 480,
         speed = 200,
         vy = 0 ,-- vertical velocity
         width = 50,
